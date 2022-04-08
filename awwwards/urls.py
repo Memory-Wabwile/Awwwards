@@ -7,5 +7,6 @@ urlpatterns = [
     path('details/' , views.details , name="details"),
     path('profile/' , views.profile , name="profile"),
     path('rate/' , views.rate , name="rate"),
-
+    path('post/', views.create_post, name = 'post'),
+    path('updateProfile/' , views.updateProfile , name ='updateProfile')
 ]

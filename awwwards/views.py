@@ -20,3 +20,13 @@ def rate(request):
     message = "ratings page"
 
     return render(request, 'rate.html' , {'message':message})
+
+def create_post(request):
+    message= "create a post"
+
+    return render(request , 'post.html' , {'message':message})
+
+def updateProfile(request):
+    message="update your profile"
+
+    return render(request,'updateProfile.html' , {'message':message})
