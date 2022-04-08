@@ -1,15 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+#from django.utils import timezone
 
 # Create your models here.
 class Post(models.Model):
-    title = models.CharField()
+    title = models.TextField()
     image = CloudinaryField('images/' , default='')
     description =models.TextField()
-    url=models.CharField()
-    user= models.OneToOneField(User,on_delete=models.CASCADE,default="")
-
+    url=models.TextField()
+    user= models.ForeignKey(User,on_delete=models.CASCADE,default="")
+    #date = models.DateTimeField(default=timezone.now)
     def save_post(self):
         self.save()
 
