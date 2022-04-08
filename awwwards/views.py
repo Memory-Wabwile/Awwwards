@@ -30,3 +30,8 @@ def updateProfile(request):
     message="update your profile"
 
     return render(request,'updateProfile.html' , {'message':message})
+
+def search(request):
+    message="search for an item"
+
+    return render (request , 'search.html' , {'message':message})
