@@ -15,3 +15,8 @@ def profile(request):
     message = 'the profile page'
 
     return render(request , 'profile.html' , {'message':message})
+
+def rate(request):
+    message = "ratings page"
+
+    return render(request, 'rate.html' , {'message':message})
