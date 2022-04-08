@@ -10,9 +10,23 @@ class Post(models.Model):
     url=models.CharField()
     user= models.OneToOneField(User,on_delete=models.CASCADE,default="")
 
-    def save_profile(self):
+    def save_post(self):
         self.save()
-        
+
+    @classmethod
+    def display_post(cls):
+        post = cls.objects.all()
+        return post
+
+    @classmethod
+    def delete_profile(cls,id):
+        cls.objects.filter(id).delete()
+    
+    @classmethod
+    def search_post(cls,searched):
+        posts = cls.objects.filter(title__icontains=searched)
+        return posts
+
     def __str__(self):
         return self.title
 
