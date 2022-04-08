@@ -10,3 +10,8 @@ def details(request):
     message = "details page"
 
     return render (request , 'details.html' , {'message':message})
+
+def profile(request):
+    message = 'the profile page'
+
+    return render(request , 'profile.html' , {'message':message})
