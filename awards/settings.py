@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'awwwards.apps.AwwwardsConfig',
+    'bootstrap4',
+    'django_bootstrap_icons',
 ]
 
 MIDDLEWARE = [
