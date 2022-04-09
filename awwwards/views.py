@@ -35,6 +35,13 @@ def updateProfile(request):
     return render(request,'updateProfile.html' , {'message':message})
 
 def search(request):
-    message="search for an item"
-
-    return render (request , 'search.html' , {'message':message})
+   
+    if 'postss' in request.GET and request.GET["postss"]:
+        search_term = request.GET.get("postss")
+        searched_postss = Post.search_post(search_term)
+        message = f"{search_term}"
+        return render(request, 'search.html',{"message":message,"searched_postss": searched_postss})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})
+    

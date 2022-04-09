@@ -1,1 +1,22 @@
+{%extends 'base.html'%}
+{% block content %}
+
 {{message}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      {% if searched_postss%}
+      {% for post in searched_postss %}
+     <h2>Found {{ searched_postss|length }} posts</h2>
+     {{post.title}}
+      {% endfor %}
+      {% else %}
+      <h2> Found 0 projects by the name {{message}} </h2>
+      {% endif %}
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
+
