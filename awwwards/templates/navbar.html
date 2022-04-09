@@ -1,0 +1,59 @@
+{% load bootstrap4 %}
+{% load bootstrap_icons %}
+<div class="container">
+<nav style="color: black;" class="navbar navbar-inverse">
+   <div class="container">
+        {% if user.is_authenticated %}
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h1>Awwwards</h1>
+                
+
+            </div>
+
+            <div style="padding-top: 1%;" class="col-sm-4 col-md-4">
+
+                <form class="navbar-form" role="search" action="{% url 'search' %}">
+
+                    <div class="input-group">
+                        <input style="background-color: #efefef;" type="text" class="form-control" placeholder="Search by username" name="image">
+                        <div class="input-group-btn">
+                            <button style="border: 1px solid rgb(71, 69, 69);" class="btn btn-default"
+                                type="search">{% bs_icon 'search' %}
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div style="display: flex; " class="navbar-right">
+                <p style="margin-right: 2em; padding-top: 5%;" ><a href="{%url 'home'%}">{% bs_icon 'house-door-fill' color='black' size='1.5em' %}</a></p>
+                <p style="margin-right: 1em; padding-top: 5%;" ><a href="{%url 'post'%}">Submit your site</a></p>
+                <ul style="list-style-type: none; margin:0 ; padding: 0;" >
+                    <li  class="dropdown">
+                        <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button"
+                            aria-expanded="false">{% bs_icon 'person-circle' size='1.5em' %}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="">Profile</a>
+                            </li>
+                            <li>
+                                <a href="">Change Password</a>
+                            </li>
+                            <li>
+                                <a href="">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                {% else %}
+                <p>login</p>
+            </div>
+            {% endif %}
+        </div> 
+</nav>
+</div>

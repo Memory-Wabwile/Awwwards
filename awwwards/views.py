@@ -1,10 +1,13 @@
 from django.shortcuts import render
+from .models import Post
 
 # Create your views here.
 
 def home (request):
     message = "Landing page"
-    return render (request , 'home.html' , {'message':message})
+
+    posts = Post.objects.all()
+    return render (request , 'home.html' , {'message':message , 'posts':posts})
 
 def details(request):
     message = "details page"

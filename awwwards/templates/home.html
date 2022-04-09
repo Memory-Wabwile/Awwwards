@@ -1,2 +1,11 @@
 {{message}}
 
+{% if posts%}
+    {% for post in posts %}
+        <h2>{{post.title}}</h2>
+    {% endfor %}
+
+
+{% else %}
+<h2>There are no posts </h2>
+{%  endif%}
