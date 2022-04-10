@@ -46,6 +46,7 @@ def create_post(request):
     current_user = request.user
     if request.method == "POST":
         form = newPost(request.POST, request.FILES)
+        print(form)
         if form.is_valid():
             title = form.cleaned_data["title"]
             image = form.cleaned_data["image"]
@@ -58,7 +59,7 @@ def create_post(request):
                 url=url,
             )
             post.save()
-        return redirect("landingPage")
+        return redirect("home")
     else:
         form = newPost()
     return render(request, "post.html", {"form": form})

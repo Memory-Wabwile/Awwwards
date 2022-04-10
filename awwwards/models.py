@@ -9,7 +9,7 @@ class Post(models.Model):
     image = CloudinaryField('images/' , default='')
     description =models.TextField()
     url=models.TextField()
-    user= models.ForeignKey(User,on_delete=models.CASCADE,default="")
+    user= models.ForeignKey(User,on_delete=models.CASCADE, null=True)
     #date = models.DateTimeField(default=timezone.now)
     def save_post(self):
         self.save()

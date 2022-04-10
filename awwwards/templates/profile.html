@@ -1,17 +1,19 @@
     {%include 'base.html'%}
+    {% load bootstrap4 %}
     {%block content%}
-    <div class="col-sm-6 m-auto " style="font-family: 'Jost', sans-serif;">
-        <div class=" content-section container" style="padding-top: 100px;">
+    <div style="background-color: #efefef;" class="container-fluid">
+        <div class="container" style="padding-top: 100px;">
             <div class="media">
                 <div class="col-sm-4">
-                    <div style="width: 150px; height:150px; overflow:hidden; border-radius:50%" class="img-wrapper">
+                    <div style=" background-color: black; width: 150px; height:150px; overflow:hidden; border-radius:50%"
+                        class="img-wrapper">
                         <img width="120%" height="120%" src="{{profile.profilePhoto.url }}" alt="profile">
                     </div>
                 </div>
                 <div class="media-body">
                     <h2 class="account-heading">{{user.username}}</h2>
                     <p class="text-secondary">{{user.email}}</p>
-                    <p>{{profile.bio}}</p>
+                    <p>{{user.profile.bio}}</p>
                     <hr>
 
                     <a href="">
@@ -20,6 +22,37 @@
 
                 </div>
             </div>
+        </div>
+
+        <div class="container mt-5">
+            {% if posts%}
+    
+            <div class="row mt-5">
+                {% for post in posts %}
+                <div class="col-md-3">
+                    <div class="card mb-5">
+                        <div class="view view-cascade overlay">
+                            <img src="{{post.image.url}}" class="img-fluid" alt="">
+    
+                        </div>
+                        <div class="card-body">
+                            <h3 class="">{{post.title}}</h3>
+                            <p class="card-text"><b>Description:</b>{{post.description}}</p>
+                            <p class="card-text"><b>Author:</b>{{post.user}}</p>
+                            <a href="details/{{post.id}}">See More</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    
+    
+    
+    
+    
+            {% else %}
+            <h2>There are no posts </h2>
+            {%  endif%}
         </div>
     </div>
     {%endblock%}
