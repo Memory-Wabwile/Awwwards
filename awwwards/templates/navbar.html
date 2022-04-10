@@ -29,15 +29,16 @@
             </div>
 
             <div style="display: flex; " class="navbar-right">
+                
+                <p style="margin-right: 1em; padding-top: 5%; color: black;" ><a href="{%url 'post'%}">Submit your site</a></p>
                 <p style="margin-right: 2em; padding-top: 5%;" ><a href="{%url 'home'%}">{% bs_icon 'house-door-fill' color='black' size='1.5em' %}</a></p>
-                <p style="margin-right: 1em; padding-top: 5%;" ><a href="{%url 'post'%}">Submit your site</a></p>
                 <ul style="list-style-type: none; margin:0 ; padding: 0;" >
                     <li  class="dropdown">
                         <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button"
                             aria-expanded="false">{% bs_icon 'person-circle' size='1.5em' %}
                             <span class="caret"></span>
                         </a>
-                        <ul class="dropdown-menu" role="menu">
+                        <ul style="color: black;" class="dropdown-menu" role="menu">
                             <li>
                                 <a href="{%url 'profile'%}">Profile</a>
                             </li>
