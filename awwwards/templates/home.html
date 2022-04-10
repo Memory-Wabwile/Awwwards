@@ -4,17 +4,33 @@
 {% load static %}
 {% block content %}
 {{block.super}}
-
-{{message}}
-
-{% if posts%}
+    <div class="div">
+        <img src="/static/img/awwards.jpg" alt="">
+    </div>
+    {% if posts%}
     {% for post in posts %}
-        <h2>{{post.title}}</h2>
+    <div class="col-md-3">
+        <div class="card mb-5">
+            <div class="view view-cascade overlay">
+                <img src="{{post.image.url}}" class="img-fluid" alt="">
+                <a href="details/{{post.id}}">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h5 class="">{{post.title}}</h5>
+                <p class="card-text"><b>Description:</b>{{post.description}}</p>
+                <p class="card-text"><b>Author:</b>{{post.user}}</p>
+                <a href="details/{{post.id}}">See More</a>
+            </div>
+        </div>
+    </div>
+    <h2>{{post.title}}</h2>
     {% endfor %}
 
 
-{% else %}
-<h2>There are no posts </h2>
-{%  endif%}
+    {% else %}
+    <h2>There are no posts </h2>
+    {%  endif%}
 
 {%endblock%}

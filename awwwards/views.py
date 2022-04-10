@@ -10,10 +10,11 @@ def home (request):
     posts = Post.objects.all()
     return render (request , 'home.html' , {'message':message , 'posts':posts})
 
-def details(request):
+def details(request,id):
     message = "details page"
 
-    return render (request , 'details.html' , {'message':message})
+    posts = Post.objects.get(id=id)
+    return render (request , 'details.html' , {'message':message , 'posts':posts})
 
 def profile(request):
     message = 'the profile page'
