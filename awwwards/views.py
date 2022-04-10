@@ -26,11 +26,6 @@ def rate(request):
 
     return render(request, 'rate.html' , {'message':message})
 
-def create_post(request):
-    message= "create a post"
-
-    return render(request , 'post.html' , {'message':message})
-
 def updateProfile(request):
     message="update your profile"
 
@@ -47,13 +42,13 @@ def search(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
 
-def new_post(request):
+def create_post(request):
     current_user = request.user
     if request.method == "POST":
         form = newPost(request.POST, request.FILES)
         if form.is_valid():
             title = form.cleaned_data["title"]
-            image = form.cleaned_data["project_image"]
+            image = form.cleaned_data["image"]
             description = form.cleaned_data["description"]
             url = form.cleaned_data["url"]
             post = Post(
@@ -66,4 +61,4 @@ def new_post(request):
         return redirect("landingPage")
     else:
         form = newPost()
-    return render(request, "post.html", {"postForm": form})
+    return render(request, "post.html", {"form": form})

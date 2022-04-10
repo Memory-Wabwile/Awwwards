@@ -5,7 +5,7 @@ Memory Wabwile<br>
 https://github.com/Memory-Wabwile
 
 ## Description
-Awwwards is an application that enables users to rate the projects of other people and also post their projects and enable others to rate them also.
+Awwwards is an application that enables users to rate the projects of other people and also post their projects and enable others to rate them.
 
 ## Live Site
 click on  to view the site
