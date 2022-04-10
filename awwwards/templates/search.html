@@ -2,21 +2,34 @@
 {% block content %}
 
 {{message}}
+<div style="background-color: #efefef;" class="container-fluid">
+  <div  class="container">
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      {% if searched_postss%}
-      {% for post in searched_postss %}
-     <h2>Found {{ searched_postss|length }} posts</h2>
-     {{post.title}}
-      {% endfor %}
-      {% else %}
-      <h2> Found 0 projects by the name {{message}} </h2>
-      {% endif %}
+    {% if searched_postss%}
+    {% for post in searched_postss %}
+    <h2>Found {{ searched_postss|length }} posts</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-5">
+          <div class="view view-cascade overlay">
+            <img src="{{post.image.url}}" class="img-fluid" alt="">
+
+          </div>
+          <div class="card-body">
+            <h3 class="">{{post.title}}</h3>
+            <p class="card-text"><b>Description:</b>{{post.description}}</p>
+            <p class="card-text"><b>Author:</b>{{post.user}}</p>
+            <a href="details/{{post.id}}">See More</a>
+          </div>
+        </div>
+      </div>
     </div>
+
+    {% endfor %}
+    {% else %}
+    <h2> Found 0 projects by the name {{message}} </h2>
+    {% endif %}
   </div>
 </div>
 </div>
 {% endblock %}
-

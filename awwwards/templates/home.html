@@ -4,33 +4,39 @@
 {% load static %}
 {% block content %}
 {{block.super}}
+<div style="background-color: #efefef;" class="container-fluid">
     <div class="div">
         <img src="/static/img/awwards.jpg" alt="">
     </div>
-    {% if posts%}
-    {% for post in posts %}
-    <div class="col-md-3">
-        <div class="card mb-5">
-            <div class="view view-cascade overlay">
-                <img src="{{post.image.url}}" class="img-fluid" alt="">
-                <a href="details/{{post.id}}">
-                    <div class="mask rgba-white-slight"></div>
-                </a>
-            </div>
-            <div class="card-body">
-                <h5 class="">{{post.title}}</h5>
-                <p class="card-text"><b>Description:</b>{{post.description}}</p>
-                <p class="card-text"><b>Author:</b>{{post.user}}</p>
-                <a href="details/{{post.id}}">See More</a>
+    <div class="container">
+        {% if posts%}
+        
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-3">
+                <div class="card mb-5">
+                    <div class="view view-cascade overlay">
+                        <img src="{{post.image.url}}" class="img-fluid" alt="">
+
+                    </div>
+                    <div class="card-body">
+                        <h3 class="">{{post.title}}</h3>
+                        <p class="card-text"><b>Description:</b>{{post.description}}</p>
+                        <p class="card-text"><b>Author:</b>{{post.user}}</p>
+                        <a href="details/{{post.id}}">See More</a>
+                    </div>
+                </div>
             </div>
         </div>
+
+        {% endfor %}
+
+
+
+        {% else %}
+        <h2>There are no posts </h2>
+        {%  endif%}
     </div>
-    <h2>{{post.title}}</h2>
-    {% endfor %}
-
-
-    {% else %}
-    <h2>There are no posts </h2>
-    {%  endif%}
+</div>
 
 {%endblock%}
