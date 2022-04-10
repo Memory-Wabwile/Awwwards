@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Post
 from .forms import newPost
 
@@ -52,12 +52,12 @@ def new_post(request):
         form = newPost(request.POST, request.FILES)
         if form.is_valid():
             title = form.cleaned_data["title"]
-            project_image = form.cleaned_data["project_image"]
+            image = form.cleaned_data["project_image"]
             description = form.cleaned_data["description"]
             url = form.cleaned_data["url"]
             post = Post(
                 title=title,
-                project_image=project_image,
+                image=image,
                 description=description,
                 url=url,
             )
@@ -65,4 +65,4 @@ def new_post(request):
         return redirect("landingPage")
     else:
         form = newPost()
-    return render(request, "new_post.html", {"postForm": form})
+    return render(request, "post.html", {"postForm": form})
