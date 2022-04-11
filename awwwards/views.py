@@ -1,7 +1,9 @@
 from django.shortcuts import redirect, render
 from .models import Post , Profile , Review
+from django.contrib.auth.models import User
 from .forms import newPost , RatingsForm 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -19,12 +21,12 @@ def details(request,id):
 
 
 @login_required(login_url='/accounts/login/')
-def profile(request,id):
+def profile(request):
     message = 'the profile page'
     
     # posts = Post.objects.get(id=id)
     # profile = Profile.objects.get(id=id)
-    return render(request , 'profile.html' , {'message':message , 'profile':profile })
+    return render(request , 'profile.html' , {'message':message})
 
 
 @login_required(login_url='/accounts/login/')
@@ -87,3 +89,8 @@ def create_post(request):
     else:
         form = newPost()
     return render(request, "post.html", {"form": form})
+
+@login_required(login_url='login')
+def logout_user(request):
+    logout(request)
+    return redirect('home')

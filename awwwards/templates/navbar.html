@@ -3,7 +3,7 @@
 <div class="container">
     <nav style="color: black;" class="navbar navbar-inverse">
         <div class="container">
-            
+            {% if user.is_authenticated %}
             <div class="container-fluid">
                 <div class="navbar-header">
                     <h1>Awwwards</h1>
@@ -28,7 +28,7 @@
                     </form>
 
                 </div>
-                {% if user.is_authenticated %}
+                
                 <div style="display: flex; " class="navbar-right">
                     <p style="margin-right: 2em; padding-top: 5%;"><a
                             href="{%url 'home'%}">{% bs_icon 'house-door-fill' color='black' size='1.5em' %}</a></p>
@@ -54,12 +54,13 @@
                             </ul>
                         </li>
                     </ul>
-                    {% else %}
+                    
+                </div>
+            {% else %}
                     <li>
                         <a class='btn btn-default' href="/accounts/login">Login</a>
                     </li>
-                </div>
-                {% endif %}
+            {% endif %}
             </div>
     </nav>
 </div>

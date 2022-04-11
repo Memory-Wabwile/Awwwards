@@ -21,7 +21,8 @@ click on  to view the site
 
 ## Design
 Landing page design for Instagram clone
-<img src="homepage.jpeg" alt="">
+<img src="award1.jpeg" alt="">
+<img src="award2.jpeg" alt="">
 
 
 ## Technologies Used
