@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 from .forms import newPost , RatingsForm , profileForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfileSerializer , PostSerializer
+
 
 # Create your views here.
 
@@ -94,3 +98,16 @@ def create_post(request):
 def logout_user(request):
     logout(request)
     return redirect('home')
+
+
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        all_profile = Profile.objects.all()
+        serializers = ProfileSerializer(all_profile, many=True)
+        return Response(serializers.data)
+
+class PostList(APIView):
+    def get(self, request, format=None):
+        all_post = Post.objects.all()
+        serializers = PostSerializer(all_post, many=True)
+        return Response(serializers.data)
