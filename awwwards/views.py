@@ -16,11 +16,12 @@ def details(request,id):
     posts = Post.objects.get(id=id)
     return render (request , 'details.html' , {'message':message , 'posts':posts})
 
-def profile(request):
+def profile(request,id):
     message = 'the profile page'
     
+    # posts = Post.objects.get(id=id)
     # profile = Profile.objects.get(id=id)
-    return render(request , 'profile.html' , {'message':message , 'profile':profile})
+    return render(request , 'profile.html' , {'message':message , 'profile':profile })
 
 def rate(request):
     message = "ratings page"
