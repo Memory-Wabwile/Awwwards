@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import Post , Profile , Review
 from .forms import newPost , RatingsForm 
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -16,6 +17,8 @@ def details(request,id):
     posts = Post.objects.get(id=id)
     return render (request , 'details.html' , {'message':message , 'posts':posts})
 
+
+@login_required(login_url='/accounts/login/')
 def profile(request,id):
     message = 'the profile page'
     
@@ -23,6 +26,8 @@ def profile(request,id):
     # profile = Profile.objects.get(id=id)
     return render(request , 'profile.html' , {'message':message , 'profile':profile })
 
+
+@login_required(login_url='/accounts/login/')
 def rate(request):
     message = "ratings page"
     
@@ -42,7 +47,7 @@ def rate(request):
     form = RatingsForm()
     return render(request,"rate.html",{"form":form,})
     
-
+@login_required(login_url='/accounts/login/')
 def updateProfile(request):
     message="update your profile"
 
@@ -59,6 +64,8 @@ def search(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
 
+
+@login_required(login_url='/accounts/login/')
 def create_post(request):
     current_user = request.user
     if request.method == "POST":
