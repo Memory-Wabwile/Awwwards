@@ -20,7 +20,7 @@ class Post(models.Model):
         return post
 
     @classmethod
-    def delete_profile(cls,id):
+    def delete_post(cls,id):
         cls.objects.filter(id).delete()
     
     @classmethod
