@@ -16,5 +16,5 @@ class RatingsForm(forms.ModelForm):
 class profileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = [ 'photo', 'bio']        
+        fields = [ 'profilePhoto', 'bio']        
            

@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import Post , Profile , Review
 from django.contrib.auth.models import User
-from .forms import newPost , RatingsForm 
+from .forms import newPost , RatingsForm , profileForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
@@ -28,7 +28,6 @@ def profile(request):
     # profile = Profile.objects.get(id=id)
     return render(request , 'profile.html' , {'message':message})
 
-
 @login_required(login_url='/accounts/login/')
 def rate(request):
     message = "ratings page"
@@ -53,7 +52,8 @@ def rate(request):
 def updateProfile(request):
     message="update your profile"
 
-    return render(request,'updateProfile.html' , {'message':message})
+    form = profileForm()
+    return render(request,'updateProfile.html' , {'message':message , 'form':form})
 
 def search(request):
    
