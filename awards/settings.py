@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'awwwards.apps.AwwwardsConfig',
     'bootstrap4',
     'django_bootstrap_icons',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
