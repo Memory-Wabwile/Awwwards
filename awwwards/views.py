@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
-from .models import Post
-from .forms import newPost
+from .models import Post , Profile , Review
+from .forms import newPost , RatingsForm 
 
 # Create your views here.
 
@@ -18,13 +18,29 @@ def details(request,id):
 
 def profile(request):
     message = 'the profile page'
-
-    return render(request , 'profile.html' , {'message':message})
+    
+    # profile = Profile.objects.get(id=id)
+    return render(request , 'profile.html' , {'message':message , 'profile':profile})
 
 def rate(request):
     message = "ratings page"
-
-    return render(request, 'rate.html' , {'message':message})
+    
+    # ratings = Review.objects.filter(user=request.user,id=id).first()
+    # all_ratings = Review.objects.filter(id=id).all()
+    # post = Post.objects.get(id = id)
+    # user = request.user
+    # if request.method == 'POST':
+    #     form = RatingsForm(request.POST)
+    #     if form.is_valid():
+    #         rate = form.save(commit=False)
+    #         rate.user = user
+    #         rate.post = post
+    #         rate.save()
+    #         return redirect('home')
+    # else:
+    form = RatingsForm()
+    return render(request,"rate.html",{"form":form,})
+    
 
 def updateProfile(request):
     message="update your profile"

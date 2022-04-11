@@ -58,3 +58,29 @@ class Profile(models.Model):
     def __str__(self):
         return self.user
 
+RATE_CHOICES = [
+(1,'1-Poor'),
+(2,'2'),
+(3,'3'),
+(4,''),
+(5,'5- Fair'),
+(6,'6'),
+(7,'7'),
+(8,'8'),
+(9,'9'),
+(10,'10-Good'),
+]
+
+
+class Review(models.Model):
+    user = models.ForeignKey(User,on_delete = models.CASCADE)
+    projects = models.ForeignKey(Post,on_delete = models.CASCADE)
+    date = models.DateField(auto_now_add=True)
+    design = models.PositiveSmallIntegerField(choices = RATE_CHOICES,default= 0)
+    usability = models.PositiveSmallIntegerField(choices = RATE_CHOICES,default = 0)
+    content = models.PositiveSmallIntegerField(choices = RATE_CHOICES,default = 0)
+    
+
+
+    def __str__(self):
+        return self.user
