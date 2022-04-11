@@ -1,0 +1,12 @@
+{%extends "django_registration/base.html"%} 
+{% load bootstrap4 %} 
+{% block content %}
+
+<div style="width: 50%; " class="container">
+<div style="height: 50%;" class="alert alert-success">
+    <p>Successfully Registered
+        <p> <a href="{%url 'landing'%}"> Click here</a> TO VISIT HOME PAGE </p>
+    </p>
+</div>
+</div>
+{% endblock %}
