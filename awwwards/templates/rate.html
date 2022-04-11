@@ -1,1 +1,8 @@
-{{message}}
+<div class="container-fluid">
+    <div class="container">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %} {% bootstrap_form rating_form %}
+            <button class="btn btn-success link">Rate</button>
+        </form>
+    </div>
+</div>
