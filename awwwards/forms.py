@@ -5,3 +5,4 @@ class newPost(forms.Form):
     image = forms.ImageField()
     description = forms.CharField(max_length=200)
     url = forms.CharField(max_length=200)
+

@@ -16,8 +16,8 @@
                     <p>{{user.profile.bio}}</p>
                     <hr>
 
-                    <a href="">
-                        <button class="btn btn-primary">Edit Profile</button>
+                    <a href="{% url 'updateProfile' %}">
+                        <button class="btn btn-secondary">Edit Profile</button>
                     </a>
 
                 </div>
@@ -51,7 +51,7 @@
     
     
             {% else %}
-            <h2>There are no posts </h2>
+            <h2>You have no posts </h2>
             {%  endif%}
         </div>
     </div>

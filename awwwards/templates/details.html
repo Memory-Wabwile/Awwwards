@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div style="background-color: #efefef;" class="container-fluid">
 
     <div class="container mt-5">
         <h3 class="mb-3" style=" text-align: center; font-weight: 400;">PROJECT</h3>
@@ -9,13 +9,13 @@
             <div class="col-md-3">
                 <div class="card mb-5">
                     <div class="view view-cascade overlay">
-                        <img src="{{posts.image.url}}" class="img-fluid" alt="" height="200">
+                        <img src="{{posts.image.url}}" class="img-fluid" alt="" width="100%" >
 
                     </div>
-                    <div class="card-body">
-                        <h3 class="">{{posts.title}}</h3>
+                    <div  style="text-align: center;" class="card-body mb-5">
+                        <h1 class="">{{posts.title}}</h1>
                         <p class="card-text"><b>Description:</b>{{posts.description}}</p>
-                        <a href="{{posts.url}}" target="_blank">View site</a>
+                        <a  style="margin-bottom: 5%;" href="{{posts.url}}" target="_blank">View site</a>
                     </div>
                 </div>
             </div>
@@ -24,14 +24,14 @@
 
     </div>
 
-    <div class="table">
-        <button><a href="{% url 'rate' %}">Rate the project</a></button>
-        <table class="table" border="1">
-            <th>Username</th>
-            <th>Design Rating</th>
-            <th>Usability Rating</th>
-            <th>Content Rating</th>
-            <th>Overal Score</th>
+    <div style="margin-top: 6%;" class="table">
+        <button style="display: block; margin:2%"  ><a  style="background-color: white; color: black;" href="{% url 'rate' %}">Rate the project</a></button>
+        <table style=" margin:2%" class="table" border="1">
+            <th>USERNAME</th>
+            <th>DESIGN RATING</th>
+            <th>USABILITY RATING</th>
+            <th>CONTENT RATING</th>
+            <th>OVERALL SCORE</th>
             
             <tr>
                 <td class="user"></td>
