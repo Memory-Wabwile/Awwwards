@@ -11,5 +11,10 @@ class RatingsForm(forms.ModelForm):
 
     class Meta:
         model = Review
-        fields = ['design','usability','content']          
+        fields = ['design','usability','content']  
+
+class profileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = [ 'photo', 'bio']        
            

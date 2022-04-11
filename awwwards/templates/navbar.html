@@ -45,13 +45,13 @@
                             <ul style="color: black;" class="dropdown-menu" role="menu">
 
                                 <li>
-                                    <a href="{%url 'profile'%}">Profile</a>
+                                    <a style="color: black;" href="{%url 'profile'%}">{% bs_icon 'person-circle' %}Profile</a>
                                 </li>
                                 <li>
-                                    <a href="/accounts/password_change">Change Password</a>
+                                    <a style="color: black;" href="/accounts/password_change"> {% bs_icon 'key-fill' %}Change Password</a>
                                 </li>
                                 <li>
-                                    <a href="/logout">Logout</a>
+                                    <a style="color: black;" href="/logout"> {% bs_icon 'file-lock-fill'  %}Logout</a>
                                 </li>
                             </ul>
                         </li>
