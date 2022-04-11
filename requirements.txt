@@ -4,9 +4,11 @@ beautifulsoup4==4.11.1
 certifi==2021.10.8
 charset-normalizer==2.0.12
 cloudinary==1.29.0
+confusable-homoglyphs==3.2.0
 Django==4.0.3
 django-bootstrap-icons==0.7.8
 django-bootstrap4==22.1
+django-registration==3.2
 idna==3.3
 Pillow==9.1.0
 psycopg2==2.9.3
