@@ -1,4 +1,4 @@
-## Instagram Clone
+## Awwwards
 
 ## Author
 Memory Wabwile<br>
