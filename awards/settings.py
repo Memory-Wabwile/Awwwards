@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'django_bootstrap_icons',
     'rest_framework',
+    
+
 ]
 
 MIDDLEWARE = [
@@ -131,6 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 
 # Internationalization

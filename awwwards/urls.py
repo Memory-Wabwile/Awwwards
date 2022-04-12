@@ -12,5 +12,5 @@ urlpatterns = [
     path('search/', views.search , name ="search"),
     path('logout/', views.logout_user, name='logout'),
     path('api/profile/', views.ProfileList.as_view()),
-    path('api/post/', views.ProfileList.as_view()),
+    path('api/post/', views.PostList.as_view()),
 ]

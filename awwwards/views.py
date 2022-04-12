@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import ProfileSerializer , PostSerializer
+from rest_framework import status
 
 
 # Create your views here.
@@ -82,11 +83,13 @@ def create_post(request):
             image = form.cleaned_data["image"]
             description = form.cleaned_data["description"]
             url = form.cleaned_data["url"]
+            user = current_user
             post = Post(
                 title=title,
                 image=image,
                 description=description,
                 url=url,
+                user=user
             )
             post.save()
         return redirect("home")
@@ -106,8 +109,24 @@ class ProfileList(APIView):
         serializers = ProfileSerializer(all_profile, many=True)
         return Response(serializers.data)
 
+    def post(self, request, format=None):
+        serializers = ProfileSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 class PostList(APIView):
     def get(self, request, format=None):
         all_post = Post.objects.all()
         serializers = PostSerializer(all_post, many=True)
         return Response(serializers.data)
+
+    def post(self, request, format=None):
+        serializers = PostSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+    
