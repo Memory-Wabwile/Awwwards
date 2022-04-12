@@ -7,7 +7,7 @@
 <div style="background-color: #efefef;" class="container-fluid">
     <div class="div" style="background-image:url('https://res.cloudinary.com/memory987651234/image/upload/v1649620223/awwards_h1xwxv.jpg' ); width:100% ; background-repeat: no-repeat; background-size: cover; height: 100vh;  background-position: center; text-align:center; overflow-x:hidden; opacity: 1; ">
     </div>
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
         <h3  class="mb-3" style=" text-align: center; font-weight: 400;" >PROJECTS</h3>
         {% if posts%}
 
@@ -19,7 +19,7 @@
                         <img src="{{post.image.url}}" class="img-fluid" alt="" height="200">
 
                     </div>
-                    <div class="card-body">
+                    <div style="font-size: 1.5em;" class="card-body">
                         <h3 class="">{{post.title}}</h3>
                         <p class="card-text"><b>Description:</b>{{post.description}}</p>
                         <p class="card-text"><b>Author:</b>{{post.user}}</p>
