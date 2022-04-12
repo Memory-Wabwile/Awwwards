@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path , include
+from django.urls import path , include, re_path
 from . import views
 
 urlpatterns = [
@@ -10,5 +10,7 @@ urlpatterns = [
     path('post/', views.create_post, name = 'post'),
     path('updateProfile/' , views.updateProfile , name ='updateProfile'),
     path('search/', views.search , name ="search"),
-     path('logout/', views.logout_user, name='logout'),
+    path('logout/', views.logout_user, name='logout'),
+    path('api/profile/', views.ProfileList.as_view()),
+    path('api/post/', views.ProfileList.as_view()),
 ]
